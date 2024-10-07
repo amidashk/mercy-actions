@@ -36,7 +36,8 @@ jobs:
 
       - name: Get the image name
         id: image_name
-        run: echo "::set-output name=IMAGE_NAME::ghcr.io/${{ github.repository }}"
+        run: |
+          echo "IMAGE_NAME=ghcr.io/${GITHUB_REPOSITORY,,}" >> ${GITHUB_ENV}
 
       - name: Extract metadata
         id: meta
@@ -96,12 +97,12 @@ jobs:
 
     environment:
       name: aks_need_approval
-      # url: https://abc.example.com
+      url: http://20.255.208.7/
 
     steps:
       - name: lowercase github.repository
         run: |
-          echo "IMAGE_NAME=${GITHUB_REPOSITORY,,}" >> ${GITHUB_ENV}
+          echo "IMAGE_NAME=ghcr.io/${GITHUB_REPOSITORY,,}" >> ${GITHUB_ENV}
 
       - name: Checkout repository
         uses: actions/checkout@v4
