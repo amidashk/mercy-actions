@@ -74,7 +74,7 @@ jobs:
         with:
           image-ref: ghcr.io/${{ steps.image_name.outputs.IMAGE_NAME }}
           output: "trivy.txt"
-          # ignore-unfixed: true
+          ignore-unfixed: true
 
       - name: Publish Trivy Output to Summary
         run: |
@@ -117,7 +117,7 @@ jobs:
         uses: Azure/k8s-create-secret@v4.0
         with:
           namespace: ${{ vars.K8S_NS }}
-          container-registry-url: ${{ env.REGISTRY }}
+          container-registry-url: ghcr.io
           container-registry-username: githut-actions
           container-registry-password: ${{ secrets.READ_PACKAGES_PAT }}
           secret-name: regcred
