@@ -106,21 +106,21 @@ jobs:
           echo "IMAGE_NAME=${GITHUB_REPOSITORY,,}" >> ${GITHUB_ENV}
 
       - name: Kubernetes set context
-        uses: Azure/k8s-set-context@v4.0.0
+        uses: Azure/k8s-set-context@v4
         with:
           method: service-account
           k8s-url: ${{ vars.K8S_URL }}
           k8s-secret: ${{ secrets.K8S_SECRET }}
 
-      - name: Create secret in Kubernetes cluster
-        id: create-k8s-secret
-        uses: Azure/k8s-create-secret@v4.0
-        with:
-          namespace: ${{ vars.K8S_NS }}
-          container-registry-url: ghcr.io
-          container-registry-username: githut-actions
-          container-registry-password: ${{ secrets.READ_PACKAGES_PAT }}
-          secret-name: regcred
+      # - name: Create secret in Kubernetes cluster
+      #   id: create-k8s-secret
+      #   uses: Azure/k8s-create-secret@v5
+      #   with:
+      #     namespace: ${{ vars.K8S_NS }}
+      #     container-registry-url: ghcr.io
+      #     container-registry-username: githut-actions
+      #     container-registry-password: ${{ secrets.READ_PACKAGES_PAT }}
+      #     secret-name: regcred
 
       - name: Deploy to Kubernetes
         id: deploy-k8s
