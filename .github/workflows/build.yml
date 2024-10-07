@@ -41,10 +41,8 @@ jobs:
       - name: Extract metadata
         id: meta
         uses: docker/metadata-action@v5
-        env:
-          IMAGE_NAME: ${{ steps.image_name.outputs.IMAGE_NAME }}
         with:
-          images: ghcr.io/${{ env.IMAGE_NAME }}
+          images: ${{ steps.image_name.outputs.IMAGE_NAME }}
           flavor: |
             latest=true
           tags: |
@@ -72,7 +70,7 @@ jobs:
       - name: Vulnerability scan
         uses: aquasecurity/trivy-action@0.24.0
         with:
-          image-ref: ghcr.io/${{ steps.image_name.outputs.IMAGE_NAME }}
+          image-ref: ${{ steps.image_name.outputs.IMAGE_NAME }}
           output: "trivy.txt"
           ignore-unfixed: true
 
