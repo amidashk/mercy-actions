@@ -43,7 +43,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ steps.image_name.outputs.IMAGE_NAME }}
+          images: ${{ env.IMAGE_NAME }}
           flavor: |
             latest=true
           tags: |
@@ -71,7 +71,7 @@ jobs:
       - name: Vulnerability scan
         uses: aquasecurity/trivy-action@0.24.0
         with:
-          image-ref: ${{ steps.image_name.outputs.IMAGE_NAME }}
+          image-ref: ${{ env.IMAGE_NAME }}
           output: "trivy.txt"
           ignore-unfixed: true
 
