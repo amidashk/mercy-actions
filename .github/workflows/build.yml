@@ -105,6 +105,9 @@ jobs:
         run: |
           echo "IMAGE_NAME=${GITHUB_REPOSITORY,,}" >> ${GITHUB_ENV}
 
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Kubernetes set context
         uses: Azure/k8s-set-context@v4
         with:
