@@ -1,5 +1,5 @@
 # FROM node:22.9
-FROM node:22.0
+FROM node:22.8
 
 ARG DOCKER_USER=app
 ARG DOCKER_UID=1001

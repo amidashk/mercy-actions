@@ -97,7 +97,7 @@ jobs:
     runs-on: ubuntu-latest
 
     environment:
-      name: aks_with_approval
+      name: aks_need_approval
       # url: https://abc.example.com
 
     steps:
