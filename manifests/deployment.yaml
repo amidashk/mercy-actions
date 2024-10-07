@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: demo-nodejs-web
-          image: "ghcr.io/mercy-actions"
+          image: "my-image"
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
