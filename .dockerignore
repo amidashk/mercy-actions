@@ -1,0 +1,81 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Common backup files
+*.swp
+*.bak
+*.tmp
+*.orig
+*~
+
+# Various IDEs
+.project
+.idea/
+*.tmproj
+.vscode/
+.metals/
+.idea/
+
+# Emacs save files
+*~
+\#*\#
+.\#*
+
+# Vim-related files
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+
+# ignore .git and .cache folders
+.git
+.cache
+
+# dependencies
+node_modules
+.pnp
+.pnp.js
+dist
+__data__
+
+# testing
+/coverage
+
+# production
+build/
+
+# ignore log and debug
+*.log
+*.debug
+
+# ignore env
+.env
+.env.*
+!.env.template
+
+# misc
+README.md
+prisma/generated/*
+
+# deployment
+.gitignore
+.dockerignore
+Makefile
+deployment/
+pulumi/
+azure-pipelines*.yml
+Dockerfile*
+sonar-project.properties
+
+# ========================================================================== #
+
+#
+# Custom ignore list per project
+#
